@@ -11,7 +11,7 @@ touch src/
 touch .env
 touch requirements.txt
 touch src/config/agents.yaml
-touch src/config/tools.yaml
+touch src/config/tasks.yaml
 touch src/main.py
 touch src/crew.py
 touch src/__init__.py

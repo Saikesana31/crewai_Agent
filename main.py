@@ -1,6 +1,4 @@
-def main():
-    print("Hello from crewai-agent!")
+import sys
+from src.crew import MatchtoJobsCrew
 
 
-if __name__ == "__main__":
-    main()
