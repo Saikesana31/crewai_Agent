@@ -7,7 +7,7 @@ from crew import MatchtoJobsCrew
 def run():
 
     inputs = {
-        'path_to_cv': './src/data/cv.md',
+        'path_to_cv': './src/data/Sai_AI_Ml_Resume.pdf',
         'path_to_jobs_csv': './src/data/jobs.csv',
     }
 

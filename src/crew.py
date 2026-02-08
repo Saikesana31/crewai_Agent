@@ -2,6 +2,7 @@ from crewai import Agent, Task, Crew, Process
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai_tools import CSVSearchTool,FileReadTool
+from tools.custom_tool import PDFSearchTool
 from typing import List, Dict, Any
 from dotenv import load_dotenv
 
@@ -17,7 +18,7 @@ class MatchtoJobsCrew():
     tasks_config = 'config/tasks.yaml'
 
     # Tools to use in the crew
-    tools = [CSVSearchTool(), FileReadTool()]
+    tools = [CSVSearchTool(), FileReadTool(), PDFSearchTool()]
 
 
     # Returns an Agent object
@@ -25,7 +26,7 @@ class MatchtoJobsCrew():
     def cv_reader(self) -> Agent:
         return Agent(
             config=self.agents_config['cv_reader'],
-            tools = [self.tools[1]],  # FileReadTool is at index 1
+            tools = [self.tools[2]],  # FileReadTool is at index 1
             verbose = True, # For debugging
             allow_delegation = False 
         )
