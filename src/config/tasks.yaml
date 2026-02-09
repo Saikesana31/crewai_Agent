@@ -19,20 +19,27 @@ read_cv_task:
 
 match_cv_task:
   description: >
-    Match the CV to the job opportunities based on skills, experience, and key
-    achievements.
-    Evaluate how well the candidate's profile fits each job description,
-    focusing on the alignment of skills, work history, and key achievements
-    with the job requirements.
+    Read and evaluate ALL job postings from the CSV file and match them to the CV.
+    You MUST evaluate EVERY SINGLE job posting in the CSV file - do not skip any.
+    For each job, calculate a match score based on skills, experience, and key achievements.
+    Focus on the alignment of skills, work history, and key achievements with job requirements.
     
+    IMPORTANT: Process ALL rows in the CSV file. Use the CSV search tool to read all job postings.
+    Return a complete ranked list of ALL jobs with their match scores.
     
     Jobs CSV file: {path_to_jobs_csv}
     CV file: {path_to_cv}
 
   expected_output: >
-    A ranked list of job opportunities that best match the CV, including:
+    A COMPLETE ranked list of ALL job opportunities from the CSV file (no exceptions),
+    sorted by match score from highest to lowest. For each job include:
     - Job Title
-    - Match Score (based on skills and experience)
-    - Key Matching Points
+    - Company Name
+    - Location
+    - Match Score (0-100% based on skills and experience)
+    - Top 3 Key Matching Points or Gaps
+    
+    Format: Return ALL jobs as a numbered list, ranked by match score.
 
   agent: matcher
+  

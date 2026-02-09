@@ -26,7 +26,7 @@ class MatchtoJobsCrew():
     def cv_reader(self) -> Agent:
         return Agent(
             config=self.agents_config['cv_reader'],
-            tools = [self.tools[2]],  # FileReadTool is at index 1
+            tools = [self.tools[2]],  # PDFSearchTool is at index 2
             verbose = True, # For debugging
             allow_delegation = False 
         )
@@ -36,7 +36,7 @@ class MatchtoJobsCrew():
     def matcher(self) -> Agent:
         return Agent(
             config = self.agents_config['matcher'],
-            tools = [self.tools[0]],  # CSVSearchTool is at index 0
+            tools = [self.tools[0], self.tools[1]],  # CSVSearchTool and FileReadTool
             verbose = True,
             allow_delegation = False,
         )
